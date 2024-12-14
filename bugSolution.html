@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text is initially visible.
+  </div>
+  <button onclick="myFunction()">Click Me</button>
+
+  <script>
+    function myFunction() {
+      // Solution: Remove the div element from the DOM before re-adding content to prevent unexpected behavior.
+      const divElement = document.getElementById("myDiv");
+      divElement.parentNode.removeChild(divElement);
+      const newDiv = document.createElement("div");
+      newDiv.id = "myDiv";
+      newDiv.textContent = "New content added after removal.";
+      document.body.appendChild(newDiv);
+    }
+  </script>
+</body>
+</html>
