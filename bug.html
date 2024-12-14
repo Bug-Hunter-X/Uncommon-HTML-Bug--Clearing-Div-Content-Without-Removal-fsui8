@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text is initially visible.
+  </div>
+  <button onclick="myFunction()">Click Me</button>
+
+  <script>
+    function myFunction() {
+      document.getElementById("myDiv").innerHTML = ""; // Clear the div content
+      // The bug is that the div's content is cleared but not removed from the DOM, 
+      // leading to unexpected behavior if we try to add content to the div again.
+    }
+  </script>
+</body>
+</html>
